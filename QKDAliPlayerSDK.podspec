@@ -1,42 +1,26 @@
-#
-# Be sure to run `pod lib lint QKDAliPlayerSDK.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
-  s.name             = 'QKDAliPlayerSDK'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of QKDAliPlayerSDK.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/不会抽烟/QKDAliPlayerSDK'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '不会抽烟' => '877520617@qq.com' }
-  s.source           = { :git => 'https://github.com/不会抽烟/QKDAliPlayerSDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'QKDAliPlayerSDK/Classes/**/*'
+  s.name         = "QKDAliPlayerSDK"
+  s.version      = "1.0.0"
+  s.summary      = "QKDAliPlayerSDK"
+  s.description  = <<-DESC
+                   It's an SDK for aliyun video vodplay, which implement by Objective-C.
+                   DESC
+  s.homepage     = "https://github.com/LMMIsGood/QKDAliPlayerSDK.git"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.author       = { "liuqs" => "quanshui.liu@qingclass.com"}
+  s.platform     = :ios
+  s.platform     = :ios, "8.0"
+  s.source       = { :git => "https://github.com/LMMIsGood/QKDAliPlayerSDK.git", :tag => "#{s.version}" }
   
-  # s.resource_bundles = {
-  #   'QKDAliPlayerSDK' => ['QKDAliPlayerSDK/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.subspec 'AliPlayerSDK' do |playerSDK|
+  playerSDK.vendored_frameworks = 'AliyunPlayer.framework','alivcffmpeg.framework','AlivcConan.framework','AliyunMediaDownloader.framework','artpSource.framework'
+  playerSDK.frameworks = 'MediaPlayer','CoreGraphics','QuartzCore','CoreVideo','OpenGLES','AVFoundation','CoreMedia','VideoToolbox','AudioToolbox'
+  end
+   
+  #s.frameworks = 'VideoToolBox','MediaPlayer'
+  #s.libraries = 'z'
+  s.requires_arc = true
+   
+
 end
